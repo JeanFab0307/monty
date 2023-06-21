@@ -45,7 +45,7 @@ void add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n += (*stack)->n;
-	pop(stack, line_number, file);
+	pop(stack, line_number);
 }
 
 /**
@@ -73,7 +73,7 @@ void sub(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n -= (*stack)->n;
-	pop(stack, line_number, file);
+	pop(stack, line_number);
 }
 
 /**
@@ -99,5 +99,5 @@ void divide(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n /= (*stack)->n;
-	pop(stack, line_number, file);
+	pop(stack, line_number);
 }
