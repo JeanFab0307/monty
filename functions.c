@@ -4,6 +4,7 @@
  * push - pushes an element to the stack.
  * @stack: stack
  * @line_number: linenum
+ * @file: file
  * Return: none
  */
 
@@ -51,6 +52,7 @@ void push(stack_t **stack, unsigned int line_number, FILE *file)
  * pall - prints all the values on the stack, starting from the top
  * @stack: stack
  * @line_number: linenumber
+ * @file: file
  * Return: none
  */
 
@@ -72,6 +74,7 @@ void pall(stack_t **stack, unsigned int line_number, FILE *file)
  * pint - prints the value at the top
  * @stack: pointer to the stack
  * @line_number: current line num
+ * @file: file
  * Return: none
  */
 
