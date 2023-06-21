@@ -25,7 +25,7 @@ void push(stack_t **stack, unsigned int line_number, FILE *file)
 	{
 		if (!isdigit(arg[i]) && arg[i] != '-')
 		{
-			fprintf(stderr, "Error: L%u: usage: push integer\n", line_number);
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free_stack(*stack);
 			fclose(file);
 			exit(EXIT_FAILURE);
