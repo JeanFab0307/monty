@@ -51,6 +51,8 @@ void add(stack_t **stack, unsigned int line_number, FILE *file);
 
 void nop();
 
+void sub(stack_t **stack, unsigned int line_number, FILE *file);
+
 void free_stack(stack_t *stack);
 
 #endif
