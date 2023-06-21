@@ -5,10 +5,11 @@
  * @stack: stack
  * @opcode: the command
  * @l_n: line num
+ * @file: file
  * Return: none
  */
 
-void execute_opcode(stack_t **stack, const char *opcode, unsigned int l_n)
+void execute_opcode(stack_t **stack, const char *opcode, int l_n, FILE *file)
 {
 	int i;
 
@@ -26,6 +27,8 @@ void execute_opcode(stack_t **stack, const char *opcode, unsigned int l_n)
 		}
 	}
 	fprintf(stderr, "Error: L%u: unknown instruction %s\n", l_n, opcode);
+	free_stack(*stack);
+	fclose(file);
 	exit(EXIT_FAILURE);
 }
 
@@ -66,9 +69,10 @@ int main(int argc, char *argv[])
 			line_number++;
 			continue; /* empty line move to next */
 		}
-		execute_opcode(&stack, opcode, line_number);
+		execute_opcode(&stack, opcode, line_number, file);
 		line_number++;
 	}
 	fclose(file);
+	free_stack(stack);
 	return (EXIT_SUCCESS);
 }

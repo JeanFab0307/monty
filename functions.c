@@ -71,3 +71,22 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * free_stack - frees unfreed memo
+ * @stack: stack
+ * Return: none
+ */
+
+void free_stack(stack_t *stack)
+{
+	stack_t *current, *temp;
+
+	current = stack;
+	while (current != NULL)
+	{
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+}
