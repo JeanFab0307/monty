@@ -43,6 +43,8 @@ void pall(stack_t **stack, unsigned int line_number, FILE *file);
 
 void pint(stack_t **stack, unsigned int line_number, FILE *file);
 
+void pop(stack_t **stack, unsigned int line_number, FILE *file);
+
 void free_stack(stack_t *stack);
 
 #endif

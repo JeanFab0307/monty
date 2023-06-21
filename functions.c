@@ -109,3 +109,29 @@ void free_stack(stack_t *stack)
 		free(temp);
 	}
 }
+
+/**
+ * pop - removes the top element of the stack.
+ * @stack: stack
+ * @line_number: line_num
+ * @file: file opened
+ * Return: none
+ */
+
+void pop(stack_t **stack, unsigned int line_number, FILE *file)
+{
+	stack_t *temp;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		free_stack(*stack);
+		fclose(file);
+		exit(EXIT_FAILURE);
+	}
+	temp = *stack;
+	*stack = (*stack)->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(temp);
+}
