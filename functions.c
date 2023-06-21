@@ -60,6 +60,7 @@ void pall(stack_t **stack, unsigned int line_number, FILE *file)
 {
 	stack_t *current;
 
+	(void)file;
 	(void)line_number;
 
 	current = *stack;
@@ -80,6 +81,8 @@ void pall(stack_t **stack, unsigned int line_number, FILE *file)
 
 void pint(stack_t **stack, unsigned int line_number, FILE *file)
 {
+	(void)file;
+
 	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
