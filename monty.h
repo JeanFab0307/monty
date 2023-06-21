@@ -53,6 +53,8 @@ void nop();
 
 void sub(stack_t **stack, unsigned int line_number, FILE *file);
 
+void divide(stack_t **stack, unsigned int line_number, FILE *file);
+
 void free_stack(stack_t *stack);
 
 #endif
