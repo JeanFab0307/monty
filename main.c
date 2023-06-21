@@ -9,7 +9,7 @@
  * Return: none
  */
 
-void execute_opcode(stack_t **stack, const char *opcode, int l_n, FILE *file)
+void execute_opcode(stack_t **stack, const char *opcode, int l_n)
 {
 	int i;
 
@@ -23,13 +23,12 @@ void execute_opcode(stack_t **stack, const char *opcode, int l_n, FILE *file)
 	{
 		if (strcmp(instructions[i].opcode, opcode) == 0)
 		{
-			instructions[i].f(stack, l_n, file);
+			instructions[i].f(stack, l_n);
 			return;
 		}
 	}
 	fprintf(stderr, "L%u: unknown instruction %s\n", l_n, opcode);
 	free_stack(*stack);
-	fclose(file);
 	exit(EXIT_FAILURE);
 }
 
@@ -70,7 +69,7 @@ int main(int argc, char *argv[])
 			line_number++;
 			continue; /* empty line move to next */
 		}
-		execute_opcode(&stack, opcode, line_number, file);
+		execute_opcode(&stack, opcode, line_number);
 		line_number++;
 	}
 	fclose(file);

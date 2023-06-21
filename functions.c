@@ -8,7 +8,7 @@
  * Return: none
  */
 
-void push(stack_t **stack, unsigned int line_number, FILE *file)
+void push(stack_t **stack, unsigned int line_number)
 {
 	char *arg;
 	stack_t *new_n;
@@ -29,7 +29,6 @@ void push(stack_t **stack, unsigned int line_number, FILE *file)
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free_stack(*stack);
-			fclose(file);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -39,7 +38,6 @@ void push(stack_t **stack, unsigned int line_number, FILE *file)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(*stack);
-		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	new_n->n = val;
@@ -58,11 +56,10 @@ void push(stack_t **stack, unsigned int line_number, FILE *file)
  * Return: none
  */
 
-void pall(stack_t **stack, unsigned int line_number, FILE *file)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current;
 
-	(void)file;
 	(void)line_number;
 
 	current = *stack;
@@ -81,9 +78,8 @@ void pall(stack_t **stack, unsigned int line_number, FILE *file)
  * Return: none
  */
 
-void pint(stack_t **stack, unsigned int line_number, FILE *file)
+void pint(stack_t **stack, unsigned int line_number)
 {
-	(void)file;
 
 	if (*stack == NULL)
 	{
@@ -120,7 +116,7 @@ void free_stack(stack_t *stack)
  * Return: none
  */
 
-void pop(stack_t **stack, unsigned int line_number, FILE *file)
+void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -128,7 +124,6 @@ void pop(stack_t **stack, unsigned int line_number, FILE *file)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		free_stack(*stack);
-		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	temp = *stack;
