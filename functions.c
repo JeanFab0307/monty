@@ -23,7 +23,7 @@ void push(stack_t **stack, unsigned int line_number, FILE *file)
 	/* chek if it is num */
 	for (i = 0; arg[i] != '\0'; i++)
 	{
-		if  (arg[0] != '-')
+		if  (arg[0] == '-')
 			continue;
 		if (!isdigit(arg[i]))
 		{
