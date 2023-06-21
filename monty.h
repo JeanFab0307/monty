@@ -45,6 +45,8 @@ void pint(stack_t **stack, unsigned int line_number, FILE *file);
 
 void pop(stack_t **stack, unsigned int line_number, FILE *file);
 
+void swap(stack_t **stack, unsigned int line_number, FILE *file);
+
 void free_stack(stack_t *stack);
 
 #endif
