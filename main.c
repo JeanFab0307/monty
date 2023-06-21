@@ -22,7 +22,7 @@ void execute_opcode(stack_t **stack, const char *opcode, int l_n, FILE *file)
 	{
 		if (strcmp(instructions[i].opcode, opcode) == 0)
 		{
-			instructions[i].f(stack, l_n);
+			instructions[i].f(stack, l_n, file);
 			return;
 		}
 	}
