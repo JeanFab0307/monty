@@ -14,11 +14,10 @@ void mul(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 		free_stack(*stack);
-		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n *= (*stack)->n;
-	pop(stack, line_number, file);
+	pop(stack, line_number);
 }
 
 /**
@@ -44,5 +43,5 @@ void mod(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n %= (*stack)->n;
-	pop(stack, line_number, file);
+	pop(stack, line_number);
 }
