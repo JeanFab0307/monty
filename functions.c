@@ -23,7 +23,9 @@ void push(stack_t **stack, unsigned int line_number, FILE *file)
 	/* chek if it is num */
 	for (i = 0; arg[i] != '\0'; i++)
 	{
-		if (!isdigit(arg[i]) && arg[i] != '-')
+		if  (arg[0] != '-')
+			continue;
+		if (!isdigit(arg[i]))
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free_stack(*stack);
