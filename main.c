@@ -5,7 +5,7 @@
  * @stack: stack
  * @opcode: the command
  * @l_n: line num
- * @file: file
+ *
  * Return: none
  */
 
@@ -15,10 +15,9 @@ void execute_opcode(stack_t **stack, const char *opcode, int l_n)
 
 	instruction_t instructions[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint},
-		{"pop", pop},
-/* {"swap", swap}, {"add", add}, {"nop", nop},
+		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
 		{"sub", sub}, {"div", divide}, {"mul", mul}, {"mod", mod},
-		add more here */
+		/*add more here */
 		{NULL, NULL}
 	};
 	for (i = 0; instructions[i].opcode != NULL; i++)
