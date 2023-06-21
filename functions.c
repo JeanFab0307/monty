@@ -11,13 +11,23 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	char *arg;
 	stack_t *new_n;
-	int val;
+	int val, i;
 
 	arg = strtok(NULL, " ");
 	if (arg == NULL)
 	{
 		fprintf(stderr, "Error: L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
+	}
+	/* chek if it is num */
+	for (i = 0; arg[i] != '\0'; i++)
+	{
+		if (!isdigit(arg[i]) && arg[i] != '-')
+		{
+			fprintf(stderr, "Error: L%u: usage: push integer\n", line_number);
+			free_stack(*stack);
+			exit(EXIT_FAILURE);
+		}
 	}
 	val = atoi(arg);
 	new_n = malloc(sizeof(stack_t));
