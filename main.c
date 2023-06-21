@@ -16,7 +16,7 @@ void execute_opcode(stack_t **stack, const char *opcode, int l_n, FILE *file)
 	instruction_t instructions[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop}, {"swap", swap}, {"add", add}, {"nop", nop},
-		{"sub", sub}, {"div", divide}, {"mul", mul},
+		{"sub", sub}, {"div", divide}, {"mul", mul}, {"mod", mod},
 		/* add more here */
 		{NULL, NULL}
 	};
