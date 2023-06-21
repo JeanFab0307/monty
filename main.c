@@ -27,7 +27,7 @@ void execute_opcode(stack_t **stack, const char *opcode, int l_n, FILE *file)
 			return;
 		}
 	}
-	fprintf(stderr, "Error: L%u: unknown instruction %s\n", l_n, opcode);
+	fprintf(stderr, "L%u: unknown instruction %s\n", l_n, opcode);
 	free_stack(*stack);
 	fclose(file);
 	exit(EXIT_FAILURE);
