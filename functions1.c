@@ -49,3 +49,11 @@ void add(stack_t **stack, unsigned int line_number, FILE *file)
 	(*stack)->next->n += (*stack)->n;
 	pop(stack, line_number, file);
 }
+
+/**
+ * nop - i do nothing, wAcK
+ * Return: NoThInG
+ */
+void nop()
+{
+}
