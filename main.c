@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 		if (line[strlen(line) - 1] == '\n')
 			line[strlen(line) - 1] = '\0';
 		opcode = strtok(line, " ");
-		if (opcode == NULL)
+		if (opcode == NULL || opcode[0] == '#')
 		{
 			line_number++;
 			continue; /* empty line move to next */
