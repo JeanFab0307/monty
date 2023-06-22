@@ -109,22 +109,20 @@ void pstr(stack_t **stack, unsigned int line_number)
 
 void rotl(stack_t **stack, unsigned int line_number)
 {
-	stack_t *last;
-	int temp;
+	stack_t *first, *second, *last;
 
 	(void)line_number;
 
-	last = *stack;
-	if (last && last->next)
-	{
-		while (last->next)
-			last = last->next;
-		temp = (*stack)->n;
-		while ((*stack)->next)
-		{
-			(*stack)->n = (*stack)->next->n;
-			*stack = (*stack)->next;
-		}
-		(*stack)->n = temp;
-	}
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
+	first = *stack;
+	second = first->next;
+	last = first;
+	while (last->next != NULL)
+		last = last->next;
+	last->next = first;
+	first->prev = last;
+	first->next = NULL;
+	second->prev = NULL;
+	*stack = second;
 }
