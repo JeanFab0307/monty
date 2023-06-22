@@ -73,3 +73,40 @@ void pchar(stack_t **stack, unsigned int line_number)
 	putchar(value);
 	putchar('\n');
 }
+
+/**
+ * pstr - prints the string starting at the top
+ * @stack: pointer to stack
+ * @line_number: line num
+ * Return: none
+ */
+
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current;
+
+	(void)line_number;
+
+	current = *stack;
+	while (current != NULL && current->n != 0 && current->n >= 0 && current->n <= 127)
+	{
+		if (isascii(current->n))
+			putchar(current->n);
+		else
+			break;
+		current = current->next;
+	}
+	putchar('\n');
+}
+
+/**
+ * isascii - checks if it is ascii
+ * @c: int
+ * Return: Always
+ */
+
+int isascii(int c)
+{
+	return (c >= 0 && c <= 127);
+
+}
