@@ -58,7 +58,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 {
 	int value;
 
-	if (*stack == NULL)
+	if (*stack == NULL || stack == NULL)
 	{
 		fprintf(stderr, "L%u: cant't pchar, stack empty\n", line_number);
 		free_stack(*stack);
