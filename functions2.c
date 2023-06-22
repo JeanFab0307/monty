@@ -100,14 +100,3 @@ void pstr(stack_t **stack, unsigned int line_number)
 	putchar('\n');
 }
 
-/**
- * isascii - checks if it is ascii
- * @c: int
- * Return: Always
- */
-
-int isascii(int c)
-{
-	return (c >= 0 && c <= 127);
-
-}
