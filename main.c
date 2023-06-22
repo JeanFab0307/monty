@@ -21,10 +21,6 @@ void execute_opcode(stack_t **stack, const char *opcode, int l_n)
 		/*add more here */
 		{NULL, NULL}
 	};
-	if (opcode[0] == '#')
-	{
-		return;
-	}
 	for (i = 0; instructions[i].opcode != NULL; i++)
 	{
 		if (strcmp(instructions[i].opcode, opcode) == 0)
